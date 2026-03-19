@@ -305,7 +305,12 @@ async def handler(update:Update,context:ContextTypes.DEFAULT_TYPE):
 
     user_path[uid]=path
 
-app=ApplicationBuilder().token(TOKEN).build()
-app.add_handler(CommandHandler("start",start))
-app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND,handler))
-app.run_polling()
+app = ApplicationBuilder().token(TOKEN).build()
+
+app.add_handler(CommandHandler("start", start))
+app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handler))
+
+
+if __name__ == "__main__":
+    print("BOT STARTED")
+    app.run_polling()
